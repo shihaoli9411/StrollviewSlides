@@ -1,9 +1,43 @@
 <!DOCTYPE html>
-<html>
-  <head><meta charset="utf-8"><title>Viewer</title></head>
-  <body style="margin:0;">
-    <iframe 
-      src="https://strollview.net/player/?uri=https://strollid.manducus.net/shihaoli9411/a7f2ed3b7cb29e85544787d9a6fc9884"
-      width="100%" height="100%" style="border:none;" allowfullscreen></iframe>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PVW Projekt StrollView</title>
+  <!-- Include StrollView Player script and stylesheet as per documentation [oai_citation:2‡omeka.vlaamsekunstcollectie.be](https://omeka.vlaamsekunstcollectie.be/s/metadatahandboek/page/digitale-storytelling#:~:text=%60%3Cscript%20defer%3D,stylesheet) -->
+  <link rel="stylesheet" href="https://strollview.net/player/static/css/main.fa4e0179.css">
+  <script defer src="https://strollview.net/player/static/js/main.0350d3cd.js"></script>
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      // Settings for the StrollView story (use our story URI from the Gist)
+      const settings = {
+        uri: "https://strollid.manducus.net/shihaoli9411/a7f2ed3b7cb29e85544787d9a6fc9884",
+        mode: "standard",
+        viewerheight: "600px",
+        autoplay: false,
+        shownav: true,
+        showfullscreen: true,
+        showinfo: true,
+        progressbar: "squares",
+        textmode: "left",
+        textsize: "20%",
+        imgoverlay: false,
+        imgoverlayurl: "",
+        imgoverlaysize: "50%",
+        showheadings: true,
+        bgcolor: "#000",
+        hudbgcolor: "#000000",
+        hudcolor: "#ffffff",
+        hudopacity: "75"
+      };
+      const root = document.getElementById("root");
+      const strollview = document.createElement("strollview-webcomponent");
+      // Pass the settings as a JSON string to the web component
+      strollview.settings = JSON.stringify(settings);
+      root.appendChild(strollview);
+    });
+  </script>
+</head>
+<body style="margin:0; background:#000;">
+  <div id="root"></div>
+</body>
 </html>
